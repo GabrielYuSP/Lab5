@@ -3,9 +3,6 @@ from hal import hal_keypad as keypad
 from hal import hal_lcd as LCD
 import led_control
 
-#Empty list to store sequence of keypad presses
-password = []
-
 lcd = LCD.lcd()
 lcd.lcd_clear()
 led_control.led.init()
@@ -23,7 +20,7 @@ def key_pressed(key):
         lcd.lcd_clear()
         lcd.lcd_display_string("LED Control", 1)
         lcd.lcd_display_string("OFF LED", 2)
-        led_control.led.set_output(20, 0)
+        led_control.stop_thread()
 
 
 def main():
